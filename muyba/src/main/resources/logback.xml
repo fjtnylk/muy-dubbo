@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration scan="true" scanPeriod="1 minutes" debug="false">
+    <contextName>muy ba</contextName>
+    <property name="file_path" value="/var/log/muy-ba"/>
+    <property name="encoder_pattern" value="%d{yyyy-MM-dd HH:mm:ss} [%-5level] [%logger.%M:%L] | %msg%n"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <pattern>${encoder_pattern}</pattern>
+        </encoder>
+        <charset>UTF-8</charset>
+    </appender>
+
+    <appender name="rolling" class="ch.qos.logback.core.FileAppender">
+        <file>${file_path}/muy_ba.log</file>
+        <encoder>
+            <pattern>${encoder_pattern}</pattern>
+        </encoder>
+        <charset>UTF-8</charset>
+    </appender>
+
+    <appender name="async_rolling" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>512</queueSize>
+        <appender-ref ref="stdout"/>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="async_rolling"/>
+    </root>
+
+    <logger name="com.muy" level="debug"/>
+    <logger name="org.springframework" level="debug"/>
+    <logger name="org.mybatis" level="debug"/>
+    <logger name="java.sql" level="debug"/>
+</configuration>
