@@ -1,5 +1,6 @@
 package com.muy.controller.user;
 
+import com.alibaba.dubbo.rpc.RpcException;
 import com.muy.APIResult;
 import com.muy.dto.user.UserLoadDto;
 import com.muy.exception.UserServiceException;
@@ -33,6 +34,10 @@ public class UserController {
             return APIResult.success(userLoadVO);
         } catch (UserServiceException e) {
             return APIResult.faild(10001, e.getMessage());
+        } catch (RpcException e) {
+            return APIResult.faild(10002, "注册中心异常!");
+        } catch (Exception e) {
+            return APIResult.faild(99999, "未捕获异常!");
         }
     }
 }

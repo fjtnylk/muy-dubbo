@@ -12,7 +12,8 @@ public class Main {
         try {
             new ClassPathXmlApplicationContext("classpath*:spring-export-user.xml").start();
         } catch (Exception ex) {
-            System.out.println("dubbo-user-provider context start error!");
+            System.out.println(String.format("dubbo-user-provider context start error![%s]", ex.getMessage()));
+            System.exit(1);
         }
 
         synchronized (Main.class) {
@@ -20,7 +21,8 @@ public class Main {
                 try {
                     Main.class.wait();
                 } catch (Throwable e) {
-                    System.out.println("synchronized error!");
+                    System.out.println(String.format("synchronized error![%s]", e.getMessage()));
+                    System.exit(1);
                 }
             }
         }

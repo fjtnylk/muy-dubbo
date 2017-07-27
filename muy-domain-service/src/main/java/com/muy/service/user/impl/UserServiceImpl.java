@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 /**
  * Created by yanglikai on 2017/7/26.
  */
-@Service
+@Service(value = "userService")
 public class UserServiceImpl implements UserService {
     @Resource
     private UserRepository userRepository;
