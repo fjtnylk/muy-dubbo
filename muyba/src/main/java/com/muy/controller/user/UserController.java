@@ -31,6 +31,7 @@ public class UserController {
                             .withUserName(userName));
 
             UserLoadVO userLoadVO = dto.parse(UserLoadVO.class);
+
             return APIResult.success(userLoadVO);
         } catch (UserServiceException e) {
             return APIResult.faild(10001, e.getMessage());
