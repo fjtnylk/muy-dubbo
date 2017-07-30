@@ -11,6 +11,7 @@
 
     <modules>
         <module>muy-export-user</module>
+        <module>muy-export-goods</module>
         <module>muy-application-service</module>
         <module>muy-domain-service</module>
         <module>muy-repository</module>

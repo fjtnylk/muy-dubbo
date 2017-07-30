@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.muy</groupId>
-    <artifactId>muy-export-user</artifactId>
+    <artifactId>muy-export-goods</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>muy-export-user</name>
+    <name>muy-export-goods</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

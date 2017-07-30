@@ -1,21 +1,21 @@
 package com.muy.exception;
 
 /**
- * Created by yanglikai on 2017/7/26.
+ * Created by yanglikai on 2017/7/28.
  */
-public class UserServiceException extends Exception {
+public class GoodsServiceException extends Exception {
     private Integer code;
     private String msg;
 
-    public UserServiceException() {
+    public GoodsServiceException() {
         super();
     }
 
-    public UserServiceException(Integer code, String msg) {
+    public GoodsServiceException(Integer code, String msg) {
         super(code + ":" + msg);
     }
 
-    public UserServiceException(Throwable throwable) {
+    public GoodsServiceException(Throwable throwable) {
         super(throwable);
     }
 

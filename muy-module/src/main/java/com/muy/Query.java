@@ -1,5 +1,7 @@
 package com.muy;
 
+import org.springframework.beans.BeanUtils;
+
 import java.io.Serializable;
 
 /**
@@ -7,5 +9,11 @@ import java.io.Serializable;
  */
 public abstract class Query implements Serializable {
     public Query() {
+    }
+
+    public <T extends DO> T parse(Class<T> query) {
+        T target = BeanUtils.instantiate(query);
+        BeanUtils.copyProperties(this, target);
+        return target;
     }
 }

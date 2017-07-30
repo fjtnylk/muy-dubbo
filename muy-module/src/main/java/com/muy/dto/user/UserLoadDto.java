@@ -1,5 +1,7 @@
 package com.muy.dto.user;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.muy.Dto;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -7,6 +9,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 /**
  * Created by yanglikai on 2017/7/26.
  */
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class UserLoadDto extends Dto {
     private Long userId;
     private String userName;

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.muy.mapper.goods.CategoryMapper">
+    <select id="selectById" resultType="com.muy.entity.goods.CategoryDO">
+        SELECT
+          id,
+          name,
+          level,
+          parent_id,
+          is_parent_flg,
+          weight,
+          status,
+          create_time
+        FROM
+          my_category
+        WHERE
+          id = #{categoryId}
+    </select>
+    <select id="selectByLevel" resultType="com.muy.entity.goods.CategoryDO">
+        SELECT
+          id,
+          name,
+          level,
+          parent_id,
+          is_parent_flg,
+          weight,
+          status,
+          create_time
+        FROM
+          my_category
+        WHERE
+          level = #{level}
+    </select>
+    <select id="selectByParentId" resultType="com.muy.entity.goods.CategoryDO">
+        SELECT
+          id,
+          name,
+          level,
+          parent_id,
+          is_parent_flg,
+          weight,
+          status,
+          create_time
+        FROM
+          my_category
+        WHERE
+          parent_id = #{parentId}
+    </select>
+</mapper>
