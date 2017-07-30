@@ -1,5 +1,6 @@
 package com.muy.service.goods;
 
+import com.muy.DtoList;
 import com.muy.dto.goods.CategoryAddDto;
 import com.muy.dto.goods.CategoryLoadDto;
 import com.muy.dto.goods.CategoryRemoveDto;
@@ -21,7 +22,7 @@ public interface GoodsService {
 
     CategoryLoadDto load4Category(CategoryLoadQuery query) throws CategoryServiceException;
 
-    List<CategoryLoadDto> load4Category(CategoryLoadLevelQuery query) throws CategoryServiceException;
+    DtoList<CategoryLoadDto> load4Category(CategoryLoadLevelQuery query) throws CategoryServiceException;
 
-    List<CategoryLoadDto> load4Category(CategoryLoadParentQuery query) throws CategoryServiceException;
+    DtoList<CategoryLoadDto> load4Category(CategoryLoadParentQuery query) throws CategoryServiceException;
 }

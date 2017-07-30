@@ -1,6 +1,7 @@
 package com.muy.service.goods.impl;
 
 import com.muy.DOList;
+import com.muy.DtoList;
 import com.muy.dto.goods.CategoryAddDto;
 import com.muy.dto.goods.CategoryLoadDto;
 import com.muy.dto.goods.CategoryRemoveDto;
@@ -13,7 +14,6 @@ import com.muy.service.goods.GoodsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by yanglikai on 2017/7/28.
@@ -54,7 +54,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public List<CategoryLoadDto> load4Category(CategoryLoadLevelQuery query) throws CategoryServiceException {
+    public DtoList<CategoryLoadDto> load4Category(CategoryLoadLevelQuery query) throws CategoryServiceException {
         int level = query.getLevel();
 
         DOList<CategoryDO> categoryDOList = categoryRepository.queryByLevel(level);
@@ -63,7 +63,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public List<CategoryLoadDto> load4Category(CategoryLoadParentQuery query) throws CategoryServiceException {
+    public DtoList<CategoryLoadDto> load4Category(CategoryLoadParentQuery query) throws CategoryServiceException {
         long parentId = query.getParentId();
 
         DOList<CategoryDO> categoryDOList = categoryRepository.queryByParentId(parentId);

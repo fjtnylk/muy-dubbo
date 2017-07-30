@@ -12,7 +12,7 @@ public class DOList<T extends DO> extends ArrayList<T> {
         super();
     }
 
-    public <T extends Dto> List<T> parse(Class<T> dto) {
+    public <T extends Dto> DtoList<T> parse(Class<T> dto) {
         DtoList<T> targetList = new DtoList<>(this.size());
 
         ListIterator<DO> sourceList = (ListIterator<DO>) this.listIterator();

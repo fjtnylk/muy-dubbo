@@ -2,6 +2,7 @@ package com.muy.controller.goods;
 
 import com.muy.APIResult;
 import com.muy.DtoList;
+import com.muy.VOList;
 import com.muy.dto.goods.CategoryAddDto;
 import com.muy.dto.goods.CategoryLoadDto;
 import com.muy.dto.goods.CategoryRemoveDto;
@@ -19,7 +20,6 @@ import com.muy.vo.goods.CategoryUpdateVO;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by yanglikai on 2017/7/28.
@@ -34,12 +34,12 @@ public class GoodsController {
     @ResponseBody
     public APIResult getCategoryByLevel(
             @PathVariable("level") Integer level) throws CategoryServiceException {
-        List<CategoryLoadDto> dtoList = goodsService.load4Category(
+        DtoList<CategoryLoadDto> dtoList = goodsService.load4Category(
                 CategoryLoadLevelQuery
                         .create()
                         .withId(level));
 
-        List<CategoryLoadVO> voList = ((DtoList) dtoList).parse(CategoryLoadVO.class);
+        VOList<CategoryLoadVO> voList = dtoList.parse(CategoryLoadVO.class);
 
         return APIResult.success(voList);
     }

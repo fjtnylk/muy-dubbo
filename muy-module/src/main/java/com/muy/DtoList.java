@@ -1,7 +1,6 @@
 package com.muy;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ListIterator;
 
 /**
@@ -16,8 +15,8 @@ public class DtoList<T extends Dto> extends ArrayList<T> {
         super(initialCapacity);
     }
 
-    public <T extends VO> List<T> parse(Class<T> vo) {
-        List<T> targetList = new ArrayList<>(this.size());
+    public <T extends VO> VOList<T> parse(Class<T> vo) {
+        VOList<T> targetList = new VOList<>(this.size());
 
         ListIterator<Dto> sourceList = (ListIterator<Dto>) this.listIterator();
         while (sourceList.hasNext()) {
